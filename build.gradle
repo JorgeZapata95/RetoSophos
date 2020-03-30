@@ -1,0 +1,41 @@
+apply plugin: 'java-library'
+apply plugin: 'eclipse'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+	mavenLocal()
+
+}
+
+buildscript {
+    repositories {
+     jcenter()
+     mavenLocal()
+        
+    }
+    dependencies {
+        classpath('net.serenity-bdd:serenity-gradle-plugin:2.0.23')             
+    }
+}
+
+dependencies {
+    compile 'net.serenity-bdd:serenity-core:2.1.10'
+    compile 'net.serenity-bdd:serenity-junit:2.1.10'
+    compile 'net.serenity-bdd:serenity-screenplay:2.1.10'
+    compile 'net.serenity-bdd:serenity-screenplay-webdriver:2.1.10'
+    compile 'net.serenity-bdd:serenity-cucumber:1.9.51'
+    testCompile('junit:junit:4.12')
+    compile group: 'jline', name: 'jline', version: '2.13'
+    compile group: 'net.serenity-bdd', name: 'serenity-rest-assured', version: '2.0.73'
+	compile group: 'net.serenity-bdd', name: 'serenity-screenplay-rest', version: '2.0.73'
+	
+}
+
+gradle.startParameter.continueOnFailure = true
+
+
